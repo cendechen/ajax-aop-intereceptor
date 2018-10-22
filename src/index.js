@@ -29,7 +29,7 @@ const ajaxPory = {
     }
   },
   addResponseCallback (fn) {
-    responseQueue.puhs(fn)
+    responseQueue.push(fn)
   },
   removeResponseCallback (fn) {
     const index = responseQueue.indexOf(fn)
