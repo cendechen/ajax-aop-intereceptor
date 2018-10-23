@@ -83,7 +83,7 @@ const ajaxPory = {
   },
   callResponse (data) {
     // 处理后置错误
-    const responseQueueClone = requestQueue.slice(0) // 复制数组
+    const responseQueueClone = responseQueue.slice(0) // 复制数组
     let retCode = 0
     while (responseQueueClone.length > 0) {
       var fn = responseQueueClone.shift()
