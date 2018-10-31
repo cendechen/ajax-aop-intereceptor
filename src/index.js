@@ -73,6 +73,37 @@ const ajaxPory = {
       })
     })
   },
+  ajaxGet (url, data = {}) {
+    data = this.callRequest(data)
+    return new Promise((r, j) => {
+      Object.keys(data).forEach(d => {
+        data[d] = encodeURIComponent(data[d])
+      })
+      const config = {
+        params: data
+      }
+      axios.get(url, config).then(d => {
+        const retCode = this.callResponse(d)
+        if (retCode === 0) {
+          r(data)
+        } else {
+          // 被前置拦截的错误
+          j(new Error('用户自定义错误'))
+        }
+      }).catch(error => {
+        let msg
+        if (error && error.response) { // 返回不是200的链接错误
+          msg = errorMsg[error.response.status] || '未知错误'
+        } else {
+          msg = '网络连接失败' // 网络失败的错误
+        }
+        globalError.forEach(fn => { // 错误的回调函数调用
+          fn.call(this, msg)
+        })
+        j(new Error(msg))
+      })
+    })
+  },
   callRequest (data) {
     const requestQueueClone = requestQueue.slice(0) // 复制数组
     while (requestQueueClone.length > 0) {

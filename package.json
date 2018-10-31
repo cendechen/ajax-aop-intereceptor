@@ -1,6 +1,6 @@
 {
   "name": "ce-ajax-aop-interceptor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ajax aop请求拦截器",
   "main": "dist/main.js",
   "scripts": {
