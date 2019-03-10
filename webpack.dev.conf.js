@@ -26,7 +26,7 @@ module.exports = {
   devServer: { // 开发server
     contentBase: path.join(__dirname, './'),
     compress: false,
-    port: 8080,
+    port: 8089,
     hot: true
   },
   devtool: 'eval-source-map', // 开发的map指定

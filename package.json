@@ -1,6 +1,6 @@
 {
   "name": "ce-ajax-aop-interceptor",
-  "version": "1.0.3",
+  "version": "2.0.1",
   "description": "ajax aop请求拦截器",
   "main": "dist/main.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/cendechen/ajax-aop-intereceptor#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "webpack": "^4.17.1"
   },
   "devDependencies": {
